@@ -25,5 +25,5 @@ val VariantBlue = Color(0xFF007AFF)
  * https://htmlcolorcodes.com/color-picker/
  */
 // Add your color here vvv
-val CheckMarkGreen = Color(0xFF008000)
+
 // ^^^ Add you color here

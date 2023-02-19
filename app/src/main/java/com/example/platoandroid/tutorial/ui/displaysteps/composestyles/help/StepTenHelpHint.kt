@@ -10,13 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
-// icon color is not green
 @Composable
-fun StepTwelveHint() {
+fun StepTenHelpHint() {
   Column {
-    Text(text = "As always, the first thing to check is to make sure that your build was successful. Check the Build tab at the bottom of Android Studio to verify this.")
-    Spacer(modifier = Modifier.height(8.dp))
-    Text(text = "If your build was successful, then double check your code, the TodoListRow should currently look like this:")
+    Text(text = "Your updated TodoListRow composable should currently look like this:")
     Spacer(modifier = Modifier.height(8.dp))
     Text(
       text = "@Composable\n" +
@@ -31,7 +28,7 @@ fun StepTwelveHint() {
       "        Icon(\n" +
       "          imageVector = Icons.Filled.CheckCircle,\n" +
       "          contentDescription = \"Checkmark\",\n" +
-      "          tint = CheckMarkGreen,\n" +
+      "          tint = MaterialTheme.colors.primary,\n" +
       "        )\n" +
       "      }\n" +
       "    }\n" +
@@ -50,6 +47,8 @@ fun StepTwelveHint() {
       style = MaterialTheme.typography.subtitle2,
       modifier = Modifier.padding(start = 16.dp)
     )
+    Spacer(modifier = Modifier.height(8.dp))
+    Text(text = "Compare your code to make sure it looks the same.")
     Spacer(modifier = Modifier.height(8.dp))
   }
 }

@@ -1,4 +1,4 @@
-package com.example.platoandroid.tutorial.ui.displaysteps.composebasics.help
+package com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -11,25 +11,35 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun StepFifteenCodeCheck() {
+fun StepElevenHelpHint() {
   Column {
-    Text(text = "Your TodoListRow code should now look like this:")
+    Text(text = "Your updated TodoListRow composable should currently look like this:")
     Spacer(modifier = Modifier.height(8.dp))
     Text(
       text = "@Composable\n" +
         "fun TodoListRow(taskName: String) {\n" +
-        "  var isComplete: Boolean = false\n" +
-        "  Row {\n" +
+        "  var isComplete: Boolean = true\n" +
+        "  Row(\n" +
+        "    modifier = Modifier.height(64.dp),\n" +
+        "    verticalAlignment = Alignment.CenterVertically,\n" +
+        "  ) {\n" +
         "    if (isComplete) {\n" +
         "      IconButton(onClick = { /*TODO*/ }) {\n" +
         "        Icon(\n" +
         "          imageVector = Icons.Filled.CheckCircle,\n" +
         "          contentDescription = \"Checkmark\",\n" +
+        "          tint = MaterialTheme.colors.primary,\n" +
         "        )\n" +
         "      }\n" +
         "    }\n" +
         "    Spacer(modifier = Modifier.width(12.dp))\n" +
         "    Text(text = taskName)\n" +
+        "    IconButton(onClick = { /*TODO*/ }) {\n" +
+        "      Icon(\n" +
+        "        imageVector = Icons.Filled.Close,\n" +
+        "        contentDescription = \"Checkmark\",\n" +
+        "      )\n" +
+        "    }\n" +
         "  }\n" +
         "  Divider()\n" +
         "}",
@@ -37,6 +47,8 @@ fun StepFifteenCodeCheck() {
       style = MaterialTheme.typography.subtitle2,
       modifier = Modifier.padding(start = 16.dp)
     )
+    Spacer(modifier = Modifier.height(8.dp))
+    Text(text = "Compare your code to make sure it looks the same.")
     Spacer(modifier = Modifier.height(8.dp))
   }
 }

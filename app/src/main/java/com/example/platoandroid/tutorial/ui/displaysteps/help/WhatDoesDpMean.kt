@@ -11,7 +11,11 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun WhatDoesDpMean() {
   Column {
-    Text(text = "")
+    Text(text = "`dp` is one unit of measure we use in programming to describe the size of things.")
+    Spacer(modifier = Modifier.height(16.dp))
+    Text(text = "In the case of code that looks like this: Modifier.width(16.dp)")
+    Spacer(modifier = Modifier.height(16.dp))
+    Text(text = "we are saying we want the composable this Modifier is applied to to be 16 dp units wide.")
     Spacer(modifier = Modifier.height(16.dp))
   }
 }

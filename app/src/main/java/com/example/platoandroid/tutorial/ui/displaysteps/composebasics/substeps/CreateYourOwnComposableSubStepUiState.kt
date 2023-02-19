@@ -36,7 +36,7 @@ class CreateYourOwnComposableSubStepUiState : TutorialSubStepBlockState {
         modifier = Modifier.padding(start = 16.dp)
       )
       Text(text = "Adding this is not much different then when you added a Text or Button composable but since this is one we define in our own code, we are going to get to take a look inside of it.")
-      Text(text = "Next, find the file named TodoList.kt where this is defined and follow the directions there.")
+      Text(text = "Next, navigate to the file named TodoList.kt where this is defined and follow the directions in that file.")
       HelpButton(prompt = "remind me how to find a file") {
         onHelpRequest { HowToSearchAFileName() }
       }

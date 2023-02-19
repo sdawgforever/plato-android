@@ -3,6 +3,7 @@ package com.example.platoandroid.tutorial.ui.displaysteps.composestyles.substeps
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
@@ -17,8 +18,11 @@ import com.example.platoandroid.tutorial.model.TutorialSubStepBlockState
 import com.example.platoandroid.tutorial.ui.TutorialStepCard
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.ColorNotUpdatingHint
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.FindingWhatPropertiesACompoableHas
+import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.StepElevenHelpHint
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.StepFourHint
+import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.StepSevenHelpHint
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.StepSixHint
+import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.StepTenHelpHint
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.StepTwelveHint
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.StepTwelveThreeQuarterCodeCheck
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.WhatAreColorHexCodes
@@ -27,6 +31,7 @@ import com.example.platoandroid.tutorial.ui.displaysteps.help.IfStatementsExplai
 import com.example.platoandroid.tutorial.ui.displaysteps.help.WhatDoesDpMean
 import com.example.platoandroid.tutorial.ui.displaysteps.help.WhatIsAComposable
 import com.example.platoandroid.tutorial.ui.displaysteps.help.WhatIsAConstructor
+import com.example.platoandroid.tutorial.ui.displaysteps.help.WhatIsAlignment
 
 class StylesOne : TutorialSubStepBlockState {
   @Composable
@@ -114,7 +119,7 @@ class StylesThree : TutorialSubStepBlockState {
       // Text(
       //   text = "If that confuses you - don’t worry too much about it. The important take away is you can write something like this:"
       // )
-      Text(text = "If want to modify multiple things about a composable, we can `chain` the modifier values like this:")
+      Text(text = "If you want to modify multiple things about a composable, you can `chain` the modifier values like this:")
       Text(
         text = "Modifier.width(16.dp).height(12.dp).background(Color.Gray)",
         color = MaterialTheme.colors.primaryVariant,
@@ -139,7 +144,7 @@ class StylesFour : TutorialSubStepBlockState {
   ) {
     TutorialStepCard(title = "Adding Styles") {
       Text(
-        text = "Let’s practice using modifiers. Let’s add a standard height to our todo list rows."
+        text = "Let’s practice using modifiers. Let’s add a standard height to our TodoListRow's."
       )
       Text(
         text = "Add a constructor to your Row composable (that you added inside of TodoListRow) and inside the constructor set the modifier value like this:"
@@ -183,9 +188,14 @@ class StylesFourHalf : TutorialSubStepBlockState {
         text = "In the constructor for the Column around our entire todo list in the TodoList composable, add a modifier that looks like this:"
       )
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Column(\n" +
+      Text(
+        text = "Column(\n" +
         "    modifier = Modifier.padding(12.dp)\n" +
-        "  )")
+        " )",
+        color = MaterialTheme.colors.primaryVariant,
+        style = MaterialTheme.typography.subtitle2,
+        modifier = Modifier.padding(start = 16.dp)
+      )
       Row {
         Button(onClick = { showNextStep() }) {
           Text(text = "Next")
@@ -203,8 +213,17 @@ class StylesFive : TutorialSubStepBlockState {
   ) {
     TutorialStepCard(title = "Adding Styles") {
       Text(
-        text = "Our Row height is better now but the rows still look a bit off. To fix this we are going to look at some other style changes we can make outside of modifiers."
+        text = "Our Row height & spacing between the edge of the screen are better now but the rows still look a bit off. To fix this we are going to look at some other style changes we can make outside of modifiers."
       )
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(
+        text = "If you want to explore more about Modifiers, take a look at Android's documentation:"
+      )
+      Text(
+        text = "https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier",
+        color = MaterialTheme.colors.primaryVariant,
+      )
+      Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
           Text(text = "Ok")
@@ -228,20 +247,21 @@ class StylesSix : TutorialSubStepBlockState {
       Text(text = "One of these additional style options for Rows and Columns is alignment.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(
-        text = "We used Row composables to build our todo list item rows and you can see that all the items in the row are pulled up to the top of the row rather than centered."
+        text = "We used a Row composable to build our TodoListRows and you can see that all the items in the row are pulled up to the top of the row rather than centered."
       )
       Spacer(modifier = Modifier.height(8.dp))
       Text(
         text = "We would say in this case that the vertical alignment of the Row is top justified."
       )
       Text(text = "It would probably look better if we made it center justified.")
+      Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
           Text(text = "Lets do it")
         }
         Spacer(modifier = Modifier.width(8.dp))
         Button(
-          onClick = { onHelpRequest { StepSixHint() } },
+          onClick = { onHelpRequest { WhatIsAlignment() } },
           colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.surface)
         ) {
           Text(text = "Tell me more about alignment")
@@ -273,7 +293,7 @@ class StylesSeven : TutorialSubStepBlockState {
         }
         Spacer(modifier = Modifier.width(8.dp))
         Button(
-          onClick = { onHelpRequest { /** TODO */ } },
+          onClick = { onHelpRequest { StepSevenHelpHint() } },
           colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.surface)
         ) {
           Text(text = "Nothing changed")
@@ -359,6 +379,7 @@ class StylesNine : TutorialSubStepBlockState {
       Text(
         text = "If you use a theme, and make all 20 of those things use whatever color primary is set to, then if you want to change that color, you only need to update it once."
       )
+      Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
           Text(text = "Next")
@@ -375,25 +396,28 @@ class StylesTen : TutorialSubStepBlockState {
     showNextStep: () -> Unit
   ) {
     TutorialStepCard(title = "Adding Styles") {
-      Text(text = "Let’s practice using colors.")
+      Text(text = "Let’s practice using colors on our TodoList.")
       Text(text = "Going back to your Todo list items, we want to make the checkmark icon green.")
       Text(text = "Icons have a property called “tint” that takes a color value.")
+      Spacer(modifier = Modifier.height(8.dp))
       HelpButton("how do I find what properties a composable has?") {
         onHelpRequest { FindingWhatPropertiesACompoableHas() }
       }
+      Spacer(modifier = Modifier.height(8.dp))
       Text(
-        text = "In the constructor of Icon, after the parameters that are already provided, assign the property “tint” to MaterialTheme.colors.primary"
+        text = "In the constructor of Icon, after the parameters that are already provided (imageVector & contentDescription), assign the property “tint” to MaterialTheme.colors.primary"
       )
-      HelpButton("remind me what a constructor is") {
-        onHelpRequest { WhatIsAConstructor() }
-      }
+      // HelpButton("remind me what a constructor is") {
+      //   onHelpRequest { WhatIsAConstructor() }
+      // }
+      Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
           Text(text = "Done")
         }
         Spacer(modifier = Modifier.width(8.dp))
         Button(
-          onClick = { onHelpRequest { /** TODO */ } },
+          onClick = { onHelpRequest { StepTenHelpHint() } },
           colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.surface)
         ) {
           Text(text = "I’m stuck")
@@ -412,7 +436,7 @@ class StylesEleven : TutorialSubStepBlockState {
     TutorialStepCard(title = "Adding Styles") {
       Text(text = "Rebuild the app. Is your Icon the primary color now?")
       HelpButton("my icon color didn't change") {
-        onHelpRequest { ColorNotUpdatingHint() }
+        onHelpRequest { StepElevenHelpHint() }
       }
       Text(
         text = "We still want it to be green though so go back to your Color.kt file and add this color to the file:"
@@ -436,10 +460,10 @@ class StylesTwelve : TutorialSubStepBlockState {
     TutorialStepCard(title = "Adding Styles") {
       Text(text = "Go back to your TodoListRow.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Set the tint value to CheckMarkGreen")
+      Text(text = "Set the tint value of the checkmark Icon to CheckMarkGreen")
       Spacer(modifier = Modifier.height(8.dp))
       Text(
-        text = "The text will probably be red, if you hover over the red word, you will see a menu pop up with the option to import. Click import when this pops up."
+        text = "The text may be red, if you hover over the red word, you will see a menu pop up with the option to `import`. Click import when this pops up."
       )
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "Rebuild the app. Is your checkmark green now?")
@@ -471,7 +495,7 @@ class StylesTwelveHalf : TutorialSubStepBlockState {
       Text(text = "But right now, when our task is NOT marked complete, this checkmark just disappears.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(
-        text = "Let's try instead to still show the checkmark if its not complete, but show it in gray instead of green"
+        text = "Let's try instead to still show the checkmark if it's not complete, but show it in gray instead of green."
       )
       Spacer(modifier = Modifier.height(8.dp))
       Row {
@@ -532,10 +556,15 @@ class StylesThirteen : TutorialSubStepBlockState {
         text = "To do this, find the Title composable in your TodoList.kt file and update the Text composable to look like this:"
       )
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Text(\n" +
+      Text(
+        text = "Text(\n" +
         "    text = \"\$title\",\n" +
         "    style = MaterialTheme.typography.h3,\n" +
-        "  )")
+        "  )",
+        color = MaterialTheme.colors.primaryVariant,
+        style = MaterialTheme.typography.subtitle2,
+        modifier = Modifier.padding(start = 16.dp)
+      )
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "Rebuild the app and see how the title changes.")
       Spacer(modifier = Modifier.height(8.dp))

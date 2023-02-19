@@ -130,7 +130,7 @@ class ComposeBasicsSubStepFour : TutorialSubStepBlockState {
       )
       Text(text = "Did yours look the same?")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Don't worry if it didn't, you'll have more chances to practice your skills!")
+      Text(text = "Don't worry if it didn't, you'll have more chances to practice your skills! Do make sure you update your TextField & Button to look the same though.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "Right now, you'll notice that our text field is stacked on top of the button. It would probably look better if they were side by side.")
       Spacer(modifier = Modifier.height(8.dp))
@@ -248,7 +248,7 @@ class ComposeBasicsSubStepEight : TutorialSubStepBlockState {
         color = MaterialTheme.colors.secondary,
         style = MaterialTheme.typography.subtitle2
       )
-      Text(text = "Did your? Your code should now look like this:")
+      Text(text = "Did your code work? Your code should now look like this:")
       Spacer(modifier = Modifier.height(8.dp))
       Text(
         text = "@Composable\n" +
@@ -540,14 +540,19 @@ class ComposeBasicsSubStepFifteen : TutorialSubStepBlockState {
         color = MaterialTheme.colors.secondary,
         style = MaterialTheme.typography.subtitle2
       )
-      Text(text = "Nice job! Next lets look at how we can make our checkmark clickable so eventually, when we learn about buttons, you can tap it to mark it complete or incomplete.")
+      Text(text = "Nice job! Next, lets look at how we can make our checkmark clickable - so that eventually, when we learn about buttons, you can tap it to mark it complete or incomplete.")
       Text(text = "To do this, we want to wrap the Icon in an IconButton. IconButtons look like:")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "IconButton(onClick = { /** todo */ }) {\n" +
+      Text(
+        text = "IconButton(onClick = { /** todo */ }) {\n" +
         "        Icon(...)\n" +
-        "      }")
+        "}",
+        color = MaterialTheme.colors.primaryVariant,
+        style = MaterialTheme.typography.subtitle2,
+        modifier = Modifier.padding(start = 16.dp)
+      )
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Try wrapping your icons in IconButtons & click the `Check my code` button.")
+      Text(text = "Try wrapping your icon in an IconButton & click the `Check my code` button.")
       HelpButton(prompt = "Check my code") {
         onHelpRequest { StepFifteenCodeCheck() }
       }
@@ -570,8 +575,8 @@ class ComposeBasicsSubStepSixteen : TutorialSubStepBlockState {
         color = MaterialTheme.colors.secondary,
         style = MaterialTheme.typography.subtitle2
       )
-      Text(text = "We left some todos in the onClick handlers for our Buttons.")
-      Text(text = "Don't worry about these for now, we will learn about what to do here later on.")
+      Text(text = "We left some todo's in the onClick handler for our IconButton.")
+      Text(text = "Don't worry about that for now, we will learn about what to do here later on.")
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
@@ -594,7 +599,7 @@ class ComposeBasicsSubStepEighteen : TutorialSubStepBlockState {
       Text(text = "Let try adding one more icon button to our task rows.")
       Text(text = "That button will be an X icon at the end of the task name that the user can click to remove the task item from the list.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "See if you can figure out how to add this.")
+      Text(text = "See if you can figure out how to add this then use the `Check my code` button check your solution.")
       Spacer(modifier = Modifier.height(8.dp))
       HelpButton(prompt = "Check my code") {
         onHelpRequest { StepEighteenCodeCheck() }

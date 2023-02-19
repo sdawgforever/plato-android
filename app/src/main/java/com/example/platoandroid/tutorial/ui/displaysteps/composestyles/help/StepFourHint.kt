@@ -3,6 +3,8 @@ package com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -18,14 +20,34 @@ fun StepFourHint() {
     Spacer(modifier = Modifier.height(8.dp))
     Text(text = "If you do see BUILD SUCCESSFUL, you probably have an error in you code. Your todo list row code should currently look like:")
     Spacer(modifier = Modifier.height(8.dp))
-    Text(text = "@Composable\n" +
+    Text(
+      text = "@Composable\n" +
       "fun TodoListRow(taskName: String) {\n" +
-      "  Row(\n" +
-      "    modifier = Modifier.height(64.dp)\n" +
-      "  ) {\n" +
+      "  var isComplete: Boolean = true\n" +
+      "  Row(modifier = Modifier.height(64.dp)) {\n" +
+      "    if (isComplete) {\n" +
+      "      IconButton(onClick = { /*TODO*/ }) {\n" +
+      "        Icon(\n" +
+      "          imageVector = Icons.Filled.CheckCircle,\n" +
+      "          contentDescription = \"Checkmark\",\n" +
+      "        )\n" +
+      "      }\n" +
+      "    }\n" +
+      "    Spacer(modifier = Modifier.width(12.dp))\n" +
       "    Text(text = taskName)\n" +
+      "    IconButton(onClick = { /*TODO*/ }) {\n" +
+      "      Icon(\n" +
+      "        imageVector = Icons.Filled.Close,\n" +
+      "        contentDescription = \"Checkmark\",\n" +
+      "      )\n" +
+      "    }\n" +
       "  }\n" +
-      "}")
+      "  Divider()\n" +
+      "}",
+      color = MaterialTheme.colors.primaryVariant,
+      style = MaterialTheme.typography.subtitle2,
+      modifier = Modifier.padding(start = 16.dp)
+    )
     Spacer(modifier = Modifier.height(8.dp))
     Text(text = "If your code looks right, but you are still having issues, don't forget to ask for help!")
     Spacer(modifier = Modifier.height(8.dp))
