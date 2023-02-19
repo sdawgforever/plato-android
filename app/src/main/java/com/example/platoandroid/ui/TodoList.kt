@@ -18,6 +18,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.outlined.CheckCircle
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.runtime.Composable
@@ -30,7 +31,6 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.platoandroid.data.TodoListItem
-import com.example.platoandroid.ui.theme.CheckMarkGreen
 import com.example.platoandroid.ui.theme.Gray
 import kotlin.random.Random
 
@@ -51,7 +51,7 @@ import kotlin.random.Random
  * it's a special one whose purpose is to be a UI building block.
  *
  * Below the "Create a new composable here" comment line below, create a function
- * named TodoListRow and annotate it as @Composable to tell the Android Studio
+ * named TodoListRow and annotate it as @Composable to tell Android Studio
  * it will be another one of our UI building blocks.
  *
  * After you do that, add a parameter to the function called taskName that is
@@ -85,6 +85,9 @@ import kotlin.random.Random
  *  contentDescription = "Checkmark",
  * )
  *
+ * By putting it above the Text composable, this will mean the checkmark displays before
+ * the Text in the row.
+ *
  * Add a few of your TodoListRow composables inside of the TodoList
  * composable. You can give them made up taskNames for now as we will handle
  * letting the user input those values later on. Rebuild the app to see how row items
@@ -100,10 +103,7 @@ import kotlin.random.Random
  */
 @Composable
 fun TodoList(title: String) {
-  Column(
-    modifier = Modifier
-      .padding(12.dp)
-  ) {
+  Column() {
     Title(title = title)
     // We need to add some to-do items here below vvv
 

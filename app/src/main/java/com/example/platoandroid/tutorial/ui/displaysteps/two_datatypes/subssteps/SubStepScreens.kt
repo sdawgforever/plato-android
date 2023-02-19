@@ -109,7 +109,7 @@ class DataTypesSubStepFour : TutorialSubStepBlockState {
       )
       Spacer(modifier = Modifier.height(8.dp))
       Text(
-        text = "Navigate back to the TodoList.kt file where we have building our todo list."
+        text = "Navigate back to the TodoList.kt file where we have been building our todo list."
       )
       Spacer(modifier = Modifier.height(8.dp))
       HelpButton("how to search for a file") {
@@ -154,9 +154,9 @@ class DataTypesSubStepFive : TutorialSubStepBlockState {
         overflow = TextOverflow.Visible,
       )
       Spacer(modifier = Modifier.height(8.dp))
-      HelpButton("why is TodoListItem red?") {
-        onHelpRequest { TodoListItemImportHelp() }
-      }
+      // HelpButton("why is TodoListItem red?") {
+      //   onHelpRequest { TodoListItemImportHelp() }
+      // }
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
@@ -189,7 +189,7 @@ class DataTypesSubStepSix : TutorialSubStepBlockState {
       )
       Spacer(modifier = Modifier.height(8.dp))
       Text(
-        text = "See if you can figure out how to make these 3 changes. After give it a shot, click the Check Code button to check your work."
+        text = "See if you can figure out how to make these 3 changes. After you give it a shot, click the Check Code button to check your work."
       )
       Spacer(modifier = Modifier.height(8.dp))
       Row {

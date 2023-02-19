@@ -114,7 +114,7 @@ sealed class TutorialStep {
   }
 
   data class LearningState(
-    override val nextStep: TutorialStep = LearningTextFields(),
+    override val nextStep: TutorialStep = LearningViewModels(),
     override val id: String = STATE_STEP_ID,
   ) : TutorialStep() {
     override val previousStep: TutorialStep = LearningButtonHandlers(this)

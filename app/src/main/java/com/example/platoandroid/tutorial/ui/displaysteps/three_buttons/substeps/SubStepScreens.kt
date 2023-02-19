@@ -67,11 +67,12 @@ class ButtonsSubStepTwo : TutorialSubStepBlockState {
   override fun displayBlock(onHelpRequest: (request: @Composable () -> Unit) -> Unit, showNextStep: () -> Unit) {
     TutorialStepCard {
       Text(
-        text = "Jetpack Compose",
+        text = "Buttons",
         color = MaterialTheme.colors.secondary,
         style = MaterialTheme.typography.subtitle2
       )
-      Text(text = "We left a todo in the onClick handler for our checkmark IconButton - we will look at that button first.")
+      Text(text = "We left a todo in the onClick handler for our checkmark IconButtons - we will look at those buttons first.")
+      Spacer(modifier = Modifier.height(8.dp))
       Text(text = "We want to update those to change the value of isComplete when they are clicked.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "In the onclick handler for the green checkmark, set isComplete = false")
@@ -99,7 +100,7 @@ class ButtonsSubStepThree : TutorialSubStepBlockState {
   override fun displayBlock(onHelpRequest: (request: @Composable () -> Unit) -> Unit, showNextStep: () -> Unit) {
     TutorialStepCard {
       Text(
-        text = "Jetpack Compose",
+        text = "Buttons",
         color = MaterialTheme.colors.secondary,
         style = MaterialTheme.typography.subtitle2
       )

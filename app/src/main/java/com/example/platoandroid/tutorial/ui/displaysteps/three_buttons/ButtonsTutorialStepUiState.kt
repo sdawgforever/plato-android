@@ -21,7 +21,7 @@ class ButtonsTutorialStepUiState : TutorialStepUiState {
     TutorialStepCard(title = "Working with Buttons") {
       Text(text = "Let’s loop back to buttons now.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "We added a button to the start of our todo list rows to mark the task as completed but right now it doesn’t do anything.")
+      Text(text = "We have added a few buttons to our todo list but right now none of them do anything.")
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {

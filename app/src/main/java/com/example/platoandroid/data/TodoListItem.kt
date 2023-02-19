@@ -1,5 +1,7 @@
 package com.example.platoandroid.data
 
+import java.util.Date
+
 /**
  * This class will be used to represent todo list items in our app.
  * This is a data class meant to represent pieces of complex data &
@@ -12,7 +14,7 @@ package com.example.platoandroid.data
  * Data classes can be used as data types throughout your app much
  * the same way as we use simple data types like String, Int, or Boolean.
  *
- * For example, if you a variable representing a todo list item, you
+ * For example, if you have a variable representing a todo list item, you
  * could write something like:
  *
  * var todoListItem: TodoListItem = TodoListItem(taskName = "thing to do")
@@ -29,7 +31,7 @@ package com.example.platoandroid.data
  * some more values to represent the following:
  *  isCompleted of type Boolean
  *  completedAt of type Date?
- *  dueDate of type Date? // remember, adding a ? to the end of data type means it can be null, see more below
+ *  dueDate of type Date? // remember, adding a ? to the end of the data type means it can be null, see more below
  *
  *  We will also default dueDate & completedAt to null. You can default a value by assigning
  *  it with the equals operator in the constructor. This will look something like:
@@ -41,6 +43,9 @@ package com.example.platoandroid.data
  *  Defaulting means when we create a new TodoListItem, if we don't explictly provide
  *  a value for dueDate, dueDate will default to null. If a value is explicitly
  *  provided, it will override the default null value and be used instead.
+ *
+ *  HINT: `null` is a value that represents something NOT existing, ie. if something is null,
+ *  that means no value is set for it - it's nothing.
  */
 
 /**
@@ -51,6 +56,8 @@ package com.example.platoandroid.data
  *
  * OR you could write a todo list item with a date like:
  * val todoListItemWithDueDate = TodoListItem(taskName = "thing to do", dueDate = Date())
+ *
+ * since the nullable type will except both null or a value.
  *
  * Note: When you access a nullable value, you will need to be aware of the fact the value
  * could be null. If you are sure its not null, you can "force unwrap it" to treat it as a
@@ -65,6 +72,8 @@ data class TodoListItem(
   // the constructor arguments go here vvv
   // It's important that we have a unique ID so we can tell different todo list
   // items apart even if they have the same taskName.
+  // When creating new items, you can always use `Random(101).toString()` to generate
+  // a new, unique, random Id.
   val id: String,
   val taskName: String,
   // add the additional values a todo list item will need below vvv

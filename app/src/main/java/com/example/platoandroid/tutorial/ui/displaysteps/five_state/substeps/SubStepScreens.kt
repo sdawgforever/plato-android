@@ -3,6 +3,7 @@ package com.example.platoandroid.tutorial.ui.displaysteps.five_state.substeps
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
@@ -88,7 +89,7 @@ class StateSubStepFive : TutorialSubStepBlockState {
     TutorialStepCard(title = "State") {
       Text(text = "To tell the computer we want it to watch a value and re-render when it changes, Compose has a few different tools we can use.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Keep the documentation for state & compose handy while we go through the next few steps: https://developer.android.com/jetpack/compose/state")
+      Text(text = "Keep the documentation for state & compose handy while we go through the next few steps: \n\nhttps://developer.android.com/jetpack/compose/state")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "The first tool we will look at is “remember” and how it is used with something called “MutableState” to let us observe changes.")
       Spacer(modifier = Modifier.height(8.dp))
@@ -108,9 +109,9 @@ class StateSubStepSix : TutorialSubStepBlockState {
     showNextStep: () -> Unit
   ) {
     TutorialStepCard(title = "State") {
-      Text(text = "MutableState is like a wrapper we put around a piece of data we want to observe - in our case, a Boolean value represented isComplete.")
+      Text(text = "MutableState is like a wrapper we put around a piece of data we want to observe - in our case, a Boolean value representing isComplete.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Any time we change the value the MutableState is wrapping, it will take care of notifying the computer that something important changed and we need to re-render.\nWe write this like:\n")
+      Text(text = "Any time we change the value the MutableState is wrapping, it will take care of notifying the computer that something important changed and we need to re-render.\n\nWe write this like:\n")
       Text(
         text = "var isComplete = mutableStateOf(todoItem.isComplete)",
         fontWeight = Companion.Bold,
@@ -145,11 +146,16 @@ class StateSubStepSeven : TutorialSubStepBlockState {
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "mutableStateOf is a function that Android provides that takes in data of any type and returns that data type wrapped in MutableState. We do NOT need to write this function ourselves since Anrdoid provides it, but to help you visualize what it is doing, if we were to write the function, it would look something like:")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "fun <T> mutableStateOf(\n" +
+      Text(
+        text = "fun <T> mutableStateOf(\n" +
         "  value: T,\n" +
         "): MutableState<T> {\n" +
         "  *does fancy things and returns your data wrapped in MutableState*\n" +
-        "}")
+        "}",
+        color = MaterialTheme.colors.primaryVariant,
+        style = MaterialTheme.typography.subtitle2,
+        modifier = Modifier.padding(start = 16.dp)
+      )
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "Where T represents a generic data type that can be anything.")
       Spacer(modifier = Modifier.height(8.dp))
@@ -175,7 +181,7 @@ class StateSubStepSevenHalf : TutorialSubStepBlockState {
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "Because “remember” takes care of this for us, you don't need to worry about doing these things yourself!")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "So the only thing you need to know is, when you want to use MutableState, always acces it via “remember”. And if you forget, Android Studio will remind you to add “remember” by underlining the MutableState in red.")
+      Text(text = "So the only thing you need to know is, when you want to use MutableState, always access it via “remember”. And if you forget, Android Studio will remind you to add “remember” by underlining the MutableState in red.")
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
@@ -223,7 +229,7 @@ class StateSubStepEight : TutorialSubStepBlockState {
     showNextStep: () -> Unit
   ) {
     TutorialStepCard(title = "State") {
-      Text(text = "You may see some new red squiggles under the two usages of isComplete after moving it to this new type. This is because isComplete is no longer a Boolean, it is of type MutableState.")
+      Text(text = "You may see some new red squiggles under the three usages of isComplete after moving it to this new type. This is because isComplete is no longer a Boolean, it is of type MutableState.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "To access the Boolean value that is wrapped by MutableState, we need to call value on isComplete")
       Spacer(modifier = Modifier.height(8.dp))
@@ -296,10 +302,21 @@ class StateSubStepEleven : TutorialSubStepBlockState {
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "For your first app, we are not going to learn about data persistence since it is a more advanced subject. But if you want to give it a try on your own, take a look at Androids documentation:")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "https://developer.android.com/training/data-storage")
+      Text(
+        text = "https://developer.android.com/training/data-storage",
+        color = MaterialTheme.colors.primaryVariant,
+        style = MaterialTheme.typography.subtitle2,
+        modifier = Modifier.padding(start = 16.dp)
+      )
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "Also take a look at the online course Android offers on data persistence:")
-      Text(text = "https://developer.android.com/courses/android-basics-kotlin/unit-5")
+      Text(
+        text = "https://developer.android.com/courses/android-basics-kotlin/unit-5",
+        color = MaterialTheme.colors.primaryVariant,
+        style = MaterialTheme.typography.subtitle2,
+        modifier = Modifier.padding(start = 16.dp)
+      )
+      Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
           Text(text = "Next")
@@ -322,7 +339,7 @@ class StateSubStepTwelve : TutorialSubStepBlockState {
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "To do this, we will still use remember & MutableState but the logic for managing the list items is going to be more complex then the simple logic to set isComplete to true or false.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Any time we have more complex logic, we don't want to put that directly in our UI - we want to put it something called a View Model.")
+      Text(text = "Any time we have more complex logic, we don't want to put that directly in our UI - we want to put it in something called a View Model.")
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {

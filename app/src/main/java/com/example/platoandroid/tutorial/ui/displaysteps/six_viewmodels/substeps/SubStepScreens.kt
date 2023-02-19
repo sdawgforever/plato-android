@@ -65,11 +65,13 @@ class ViewModelSupStepTwo : TutorialSubStepBlockState {
     showNextStep: () -> Unit
   ) {
     TutorialStepCard(title = "ViewModels") {
-      Text(text = "Here is a diagram to help you visualize how the ViewModel and view work together.")
+      Text(text = "The ViewModel & View (our composables) are both part of what we call the `UI Layer` but the ViewModel is responsible for data logic & the View is responsible for UI logic.")
+      // Text(text = "Here is a diagram to help you visualize how the ViewModel and view work together.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Notice it talks about a “Data Layer” & “UI Layer” - we will talk more about what those mean later on in the Architecture section.")
-      // DataLayerDiagramImage()
-      Text(text = "Look at the documentation to learn alittle more:")
+      Text(text = "We will talk more about the “UI Layer” and what that mean later on in the Architecture section.")
+      // // DataLayerDiagramImage()
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "Look at the documentation to learn a little more:")
       Text(
         text = "https://developer.android.com/topic/architecture/ui-layer/stateholders",
         color = MaterialTheme.colors.primaryVariant,
@@ -191,7 +193,7 @@ class ViewModelSupStepFive : TutorialSubStepBlockState {
         }
         Spacer(modifier = Modifier.width(8.dp))
         Button(
-          onClick = { onHelpRequest { /** TODO */ } },
+          onClick = { onHelpRequest { HowToSearchAFileName() } },
           colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.surface)
         ) {
           Text(text = "I can't find it")
@@ -256,9 +258,9 @@ class ViewModelSupStepEight : TutorialSubStepBlockState {
     TutorialStepCard(title = "ViewModels") {
       Text(text = "todoListItems currently is set to a value of mutableStateListOf()")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "mutableStateListOf is another helper function android provides that generates list of items you pass it wrapped in the SnapshotStateList data type.")
+      Text(text = "mutableStateListOf is another helper function android provides that generates a list of items you pass it wrapped in the SnapshotStateList data type.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Inside of function parentheses on mutableStateListOf - add a few TodoListItems you want to have in your todo list.")
+      Text(text = "Inside of the function parentheses on mutableStateListOf - add a few TodoListItems you want to have in your todo list.")
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
