@@ -11,9 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun StepSeventeenCodeCheck() {
+fun StepFifteenHelpHint() {
   Column {
-    Text(text = "Your TodoList should now look something like:")
+    Text(text = "After checking to make sure your app built, check your TodoList code to make sure it looks like this:")
     Spacer(modifier = Modifier.height(8.dp))
     Text(
       text = "@Composable\n" +
@@ -31,15 +31,7 @@ fun StepSeventeenCodeCheck() {
         "    Row {\n" +
         "      TextField(value = \"\", onValueChange = {})\n" +
         "      Spacer(modifier = Modifier.width(12.dp))\n" +
-        "      Button(onClick = {\n" +
-        "        val newItem = TodoListItem(\n" +
-        "          id = Random(101).toString(),\n" +
-        "          taskName = \"still hardcoding this\",\n" +
-        "          isComplete = false,\n" +
-        "          completedAt = null,\n" +
-        "        )\n" +
-        "        viewModel.addTodoListItem(newItem)\n" +
-        "      }) {\n" +
+        "      Button(onClick = { /*TODO*/ }) {\n" +
         "        Text(text = \"Add item\")\n" +
         "      }\n" +
         "    }\n" +
@@ -50,29 +42,28 @@ fun StepSeventeenCodeCheck() {
       modifier = Modifier.padding(start = 16.dp)
     )
     Spacer(modifier = Modifier.height(8.dp))
-    Text(text = "Take note that we initialized the isComplete value to false. This is because if we are adding a new item, we should assume it has not been completed until the user takes an action to indicate completion.")
-    Spacer(modifier = Modifier.height(8.dp))
-    Text(text = "Also, you may notice that in the above example we constructed the TodoListItem and set it to a value and then passed that value into addTodoListItem.")
-    Spacer(modifier = Modifier.height(8.dp))
-    Text(text = "It would also have been valid to have constructed the TodoListItem directly within the () of addTodoListItem like this:")
+    Text(text = "If that looks good but you are still not seeing your items, also check your TodoListViewModel code to make sure it looks like this:")
     Spacer(modifier = Modifier.height(8.dp))
     Text(
-      text = "Button(onClick = {\n" +
-        "        viewModel.addTodoListItem(\n" +
-        "          TodoListItem(\n" +
-        "            id = Random(101).toString(),\n" +
-        "            taskName = \"still hardcoding this\",\n" +
-        "            isComplete = false,\n" +
-        "            completedAt = null,\n" +
-        "          )\n" +
-        "        )\n" +
-        "      }) {\n" +
-        "        Text(text = \"Add item\")\n" +
-        "      }",
+      text = "class TodoListViewModel() : ViewModel() {\n" +
+        "  /**\n" +
+        "   * This is the body of our view model where all the logic will live.\n" +
+        "   */\n" +
+        "  var todoListItems: SnapshotStateList<TodoListItem> = mutableStateListOf(\n" +
+        "    TodoListItem(\n" +
+        "      id = Random(101).toString(),\n" +
+        "      taskName = \"Thing one\",\n" +
+        "      isComplete = false,\n" +
+        "      completedAt = null\n" +
+        "    )\n" +
+        "  )\n" +
+        "    ...\n",
       color = MaterialTheme.colors.primaryVariant,
       style = MaterialTheme.typography.subtitle2,
       modifier = Modifier.padding(start = 16.dp)
     )
+    Spacer(modifier = Modifier.height(8.dp))
+    Text(text = "Note: It does not matter how many TodoListItems you added or what values you gave them, any should be fine.")
     Spacer(modifier = Modifier.height(8.dp))
   }
 }

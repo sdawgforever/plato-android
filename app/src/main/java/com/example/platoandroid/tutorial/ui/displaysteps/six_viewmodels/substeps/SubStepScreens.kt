@@ -32,9 +32,11 @@ import com.example.platoandroid.tutorial.ui.displaysteps.help.HelpButton
 import com.example.platoandroid.tutorial.ui.displaysteps.help.HowToSearchAFileName
 import com.example.platoandroid.tutorial.ui.displaysteps.help.WhatIsABestPractice
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.help.StepEighteenCheckCode
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.help.StepFifteenHelpHint
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.help.StepNineteenCheckCode
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.help.StepSeventeenCodeCheck
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.help.StepTwentyButtonsNotWorkingHelp
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.help.StepTwentyOneCodeCheck
 
 class ViewModelSupStepOne : TutorialSubStepBlockState {
   @Composable
@@ -302,11 +304,14 @@ class ViewModelSupStepTen : TutorialSubStepBlockState {
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "The first thing we need, is a reference to our view model to retrieve the list from.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "To do that create a new variable on your TodoList composable called viewModel and set it to an instance of your TodoListViewModel.")
+      Text(text = "To do that, create a new variable on your TodoList composable called viewModel and set it to an instance of your TodoListViewModel.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "This will look like:")
       Text(
-        text = "val viewModel: TodoListViewModel = TodoListViewModel()"
+        text = "val viewModel: TodoListViewModel = TodoListViewModel()",
+        color = MaterialTheme.colors.primaryVariant,
+        style = MaterialTheme.typography.subtitle2,
+        modifier = Modifier.padding(start = 16.dp)
       )
       Spacer(modifier = Modifier.height(8.dp))
       Row {
@@ -325,11 +330,16 @@ class ViewModelSupStepTwelve : TutorialSubStepBlockState {
     showNextStep: () -> Unit
   ) {
     TutorialStepCard(title = "ViewModels") {
-      Text(text = "Remember when we used the MutableState with `remember` - the job of `remember` was to handle making sure our state was managed efficiently behind the scenes.")
+      Text(text = "Remember when we used the MutableState with `remember`? The job of `remember` was to handle making sure our state was managed efficiently behind the scenes.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "ViewModels have similar helper - update your viewModel variable to look like this:")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "val viewModel: TodoListViewModel = viewModel { TodoListViewModel() }")
+      Text(
+        text = "val viewModel: TodoListViewModel = viewModel { TodoListViewModel() }",
+        color = MaterialTheme.colors.primaryVariant,
+        style = MaterialTheme.typography.subtitle2,
+        modifier = Modifier.padding(start = 16.dp)
+      )
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "You don't worry too much about what this does, just know it's a helpful tool that will make your app more efficient. You can always learn more about view models with compose by looking through Androids documentation!")
       Spacer(modifier = Modifier.height(8.dp))
@@ -358,9 +368,14 @@ class ViewModelSupStepThirteen : TutorialSubStepBlockState {
       Text(text = "Kotlin has some special syntax for looping through lists called `forEach`.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "In the space where the manually added TodoListRows used to be, add this:")
-      Text(text = "viewModel.todoListItems.forEach { todoListItem ->\n" +
+      Text(
+        text = "viewModel.todoListItems.forEach { todoListItem ->\n" +
         "    TodoListRow(todoItem = todoListItem)\n" +
-        "  }")
+        "  }",
+        color = MaterialTheme.colors.primaryVariant,
+        style = MaterialTheme.typography.subtitle2,
+        modifier = Modifier.padding(start = 16.dp)
+      )
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
@@ -371,34 +386,34 @@ class ViewModelSupStepThirteen : TutorialSubStepBlockState {
   }
 }
 
-class ViewModelSupStepFourteen : TutorialSubStepBlockState {
-  @Composable
-  override fun displayBlock(
-    onHelpRequest: (request: @Composable () -> Unit) -> Unit,
-    showNextStep: () -> Unit
-  ) {
-    TutorialStepCard(title = "ViewModels") {
-      Text(text = "Now that we have a reference to our viewModel, let's populate TodoListRows for each of the items in our todoListItems value on our viewModel.")
-      Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "You can access this variable on your viewModel like this: viewModel.todoListItems")
-      Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "We can use a loop to traverse our list and add a TodoListRow composable for each TodoListItem in the list on our viewModel.")
-      Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Kotlin has some special syntax for looping through lists called `forEach`.")
-      Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "In the space where the manually added TodoListRows used to be, add this:")
-      Text(text = "viewModel.todoListItems.forEach { todoListItem ->\n" +
-        "    TodoListRow(todoItem = todoListItem)\n" +
-        "  }")
-      Spacer(modifier = Modifier.height(8.dp))
-      Row {
-        Button(onClick = { showNextStep() }) {
-          Text(text = "Next")
-        }
-      }
-    }
-  }
-}
+// class ViewModelSupStepFourteen : TutorialSubStepBlockState {
+//   @Composable
+//   override fun displayBlock(
+//     onHelpRequest: (request: @Composable () -> Unit) -> Unit,
+//     showNextStep: () -> Unit
+//   ) {
+//     TutorialStepCard(title = "ViewModels") {
+//       Text(text = "Now that we have a reference to our viewModel, let's populate TodoListRows for each of the items in our todoListItems value on our viewModel.")
+//       Spacer(modifier = Modifier.height(8.dp))
+//       Text(text = "You can access this variable on your viewModel like this: viewModel.todoListItems")
+//       Spacer(modifier = Modifier.height(8.dp))
+//       Text(text = "We can use a loop to traverse our list and add a TodoListRow composable for each TodoListItem in the list on our viewModel.")
+//       Spacer(modifier = Modifier.height(8.dp))
+//       Text(text = "Kotlin has some special syntax for looping through lists called `forEach`.")
+//       Spacer(modifier = Modifier.height(8.dp))
+//       Text(text = "In the space where the manually added TodoListRows used to be, add this:")
+//       Text(text = "viewModel.todoListItems.forEach { todoListItem ->\n" +
+//         "    TodoListRow(todoItem = todoListItem)\n" +
+//         "  }")
+//       Spacer(modifier = Modifier.height(8.dp))
+//       Row {
+//         Button(onClick = { showNextStep() }) {
+//           Text(text = "Next")
+//         }
+//       }
+//     }
+//   }
+// }
 
 class ViewModelSupStepFifteen : TutorialSubStepBlockState {
   @Composable
@@ -409,7 +424,11 @@ class ViewModelSupStepFifteen : TutorialSubStepBlockState {
     TutorialStepCard(title = "ViewModels") {
       Text(text = "Rebuild your app and you should now see the tasks you added to the todoListItems variable on your viewModel displayed in your todo list.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Now that our list of todo items is hooked up to our viewModel, we also want to hook up the onClick callbacks on our buttons to trigger the right functions in our TodoListViewModel.")
+      HelpButton("I don't see my items") {
+        onHelpRequest { StepFifteenHelpHint() }
+      }
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "Now that our list of todo items are hooked up to our viewModel, we also want to hook up the onClick callbacks on our buttons to trigger the right functions in our TodoListViewModel.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "By doing this, we move the onClick logic to our view model which was our goal - to move logic out of the view and into the view model.")
       Spacer(modifier = Modifier.height(8.dp))
@@ -435,11 +454,16 @@ class ViewModelSupStepSixteen : TutorialSubStepBlockState {
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "Go to the onClick method on the Add item button and add viewModel.addTodoListItem() inside the onClick function brackets. This will end up looking like:")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Button(onClick = {\n" +
+      Text(
+        text = "Button(onClick = {\n" +
         "      viewModel.addTodoListItem()\n" +
-        "    }) {\n" +
+        "}) {\n" +
         "      Text(text = \"Add Item\")\n" +
-        "    }")
+        "}",
+        color = MaterialTheme.colors.primaryVariant,
+        style = MaterialTheme.typography.subtitle2,
+        modifier = Modifier.padding(start = 16.dp)
+      )
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
@@ -457,9 +481,11 @@ class ViewModelSupStepSeventeen : TutorialSubStepBlockState {
     showNextStep: () -> Unit
   ) {
     TutorialStepCard(title = "ViewModels") {
-      Text(text = "The addTodoListItem wants us to pass in the new item we want to create.")
+      Text(text = "The addTodoListItem function wants us to pass in the new item we want to create.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "Try creating a new TodoListItem and pass it into the viewModel.addTodoListItem function.")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "Rebuild the app, try clicking the Add item button and see if your new item shows up.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "Click the Check code button to see how yours compares!")
       Spacer(modifier = Modifier.height(8.dp))
@@ -584,6 +610,13 @@ class ViewModelSupStepTwentyOne : TutorialSubStepBlockState {
       Row {
         Button(onClick = { showNextStep() }) {
           Text(text = "How do I use the text field?")
+        }
+        Spacer(modifier = Modifier.width(8.dp))
+        Button(
+          onClick = { onHelpRequest { StepTwentyOneCodeCheck() } },
+          colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.surface)
+        ) {
+          Text(text = "Check code")
         }
       }
     }

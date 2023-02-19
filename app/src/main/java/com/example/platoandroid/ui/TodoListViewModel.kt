@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.ViewModel
 import com.example.platoandroid.data.TodoListItem
+import kotlin.random.Random
 
 /**
  * ViewModel's generally manage state and business logic for a single
@@ -63,7 +64,7 @@ class TodoListViewModel() : ViewModel() {
      * `find` is an operation on SnapshotStateList that let's us search for and retrieve
      * the first item matching the criteria specified in the function brackets.
      */
-    //val itemToUpdate =
+    //var itemToUpdate =
 
     /**
      * We will also want to know the index (the position) of this item in todoListItems
@@ -77,12 +78,19 @@ class TodoListViewModel() : ViewModel() {
     //val itemToUpdateIndex =
 
     /**
-     * Below this comment, on todoListItems, access the TodoListItem at the found index and
-     * set the isComplete value to true.
+     * Below this comment, on itemToUpdate, set the isComplete value to true.
      */
     // Set isComplete = true here vvv
 
     // ^^^ Set isComplete = true above
+
+    /**
+     * Below this comment, on todoListItems, access the TodoListItem at the found index and
+     * set the value to your updated itemToUpdate.
+     */
+    // Set todoListItems[itemToUpdateIndex] here vvv
+
+    // ^^^ Set todoListItems[itemToUpdateIndex] above
   }
 
   /**

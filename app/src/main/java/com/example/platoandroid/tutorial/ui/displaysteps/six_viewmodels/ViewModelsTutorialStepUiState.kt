@@ -15,7 +15,6 @@ import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepFifteen
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepFive
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepFour
-import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepFourteen
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepNine
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepNineteen
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepOne
@@ -60,7 +59,6 @@ class ViewModelsTutorialStepUiState : TutorialStepUiState {
     ViewModelSupStepTen(),
     ViewModelSupStepTwelve(),
     ViewModelSupStepThirteen(),
-    ViewModelSupStepFourteen(),
     ViewModelSupStepFifteen(),
     ViewModelSupStepSixteen(),
     ViewModelSupStepSeventeen(),
