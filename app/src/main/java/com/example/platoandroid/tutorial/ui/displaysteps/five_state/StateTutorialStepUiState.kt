@@ -17,10 +17,11 @@ import com.example.platoandroid.tutorial.ui.displaysteps.five_state.substeps.Sta
 import com.example.platoandroid.tutorial.ui.displaysteps.five_state.substeps.StateSubStepNine
 import com.example.platoandroid.tutorial.ui.displaysteps.five_state.substeps.StateSubStepOne
 import com.example.platoandroid.tutorial.ui.displaysteps.five_state.substeps.StateSubStepSeven
+import com.example.platoandroid.tutorial.ui.displaysteps.five_state.substeps.StateSubStepSevenHalf
+import com.example.platoandroid.tutorial.ui.displaysteps.five_state.substeps.StateSubStepSevenThreeQuarter
 import com.example.platoandroid.tutorial.ui.displaysteps.five_state.substeps.StateSubStepSix
 import com.example.platoandroid.tutorial.ui.displaysteps.five_state.substeps.StateSubStepTen
-import com.example.platoandroid.tutorial.ui.displaysteps.five_state.substeps.StateSubStepThree
-import com.example.platoandroid.tutorial.ui.displaysteps.five_state.substeps.StateSubStepTwo
+import com.example.platoandroid.tutorial.ui.displaysteps.five_state.substeps.StateSubStepTwelve
 
 class StateTutorialStepUiState : TutorialStepUiState {
   @Composable
@@ -42,15 +43,16 @@ class StateTutorialStepUiState : TutorialStepUiState {
 
   override fun getSubSteps(): List<TutorialSubStep> = listOf(
     StateSubStepOne(),
-    StateSubStepTwo(),
-    StateSubStepThree(),
     StateSubStepFour(),
     StateSubStepFive(),
     StateSubStepSix(),
     StateSubStepSeven(),
+    StateSubStepSevenHalf(),
+    StateSubStepSevenThreeQuarter(),
     StateSubStepEight(),
     StateSubStepNine(),
     StateSubStepTen(),
     StateSubStepEleven(),
+    StateSubStepTwelve(),
   )
 }

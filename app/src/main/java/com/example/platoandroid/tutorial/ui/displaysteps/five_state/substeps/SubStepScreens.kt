@@ -9,6 +9,7 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion
@@ -16,8 +17,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.platoandroid.tutorial.model.TutorialSubStepBlockState
 import com.example.platoandroid.tutorial.ui.TutorialStepCard
+import com.example.platoandroid.tutorial.ui.displaysteps.five_state.help.RememberSyntaxExplained
+import com.example.platoandroid.tutorial.ui.displaysteps.five_state.help.StepEightHelpHint
+import com.example.platoandroid.tutorial.ui.displaysteps.five_state.help.StepTwoHelpHint
+import com.example.platoandroid.tutorial.ui.displaysteps.help.DefineTermRender
 import com.example.platoandroid.tutorial.ui.displaysteps.help.HelpButton
 import com.example.platoandroid.tutorial.ui.displaysteps.help.IfStatementsExplained
+import com.example.platoandroid.tutorial.ui.displaysteps.help.ImportsExplained
 import com.example.platoandroid.tutorial.ui.displaysteps.help.MutableStateOverview
 import com.example.platoandroid.tutorial.ui.displaysteps.help.WhatIsABoolean
 import com.example.platoandroid.tutorial.ui.displaysteps.help.WhatIsAVariable
@@ -34,78 +40,13 @@ class StateSubStepOne : TutorialSubStepBlockState {
       Text(text = "First, we want to represent the state of a Todo item.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "Each item on our todo list can be either “Open” or “Complete”.")
+      Text(text = "Remember before we added an isComplete variable to represent this but nothing changed when we clicked our button to change it?")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "We will represent this state using a variable named isComplete that can be either true or false for each todo item.")
-      Spacer(modifier = Modifier.height(8.dp))
-      Row {
-        Button(onClick = { showNextStep() }) {
-          Text(text = "Let's try it")
-        }
-      }
-    }
-  }
-}
-
-class StateSubStepTwo : TutorialSubStepBlockState {
-  @Composable
-  override fun displayBlock(
-    onHelpRequest: (request: @Composable () -> Unit) -> Unit,
-    showNextStep: () -> Unit
-  ) {
-    TutorialStepCard(title = "State") {
-      Text(text = "Inside the composable function called TodoListRow, add a variable called isComplete of type Boolean.")
-      HelpButton("remind me what a variable is") {
-        onHelpRequest { WhatIsAVariable() }
-      }
-      HelpButton("remind me what a boolean is") {
-        onHelpRequest { WhatIsABoolean() }
-      }
-      Text(text = "This would look like:")
-      Text(text = "   var isComplete: Boolean = false", fontWeight = FontWeight.Bold)
-      Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "For now, we will always make it false but later on we will make this dynamic.")
+      // Text(text = "We will represent this state using a variable named isComplete that can be either true or false for each todo item.")
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
-          Text(text = "Got it")
-        }
-        Spacer(modifier = Modifier.width(8.dp))
-        Button(
-          onClick = { onHelpRequest { /** TODO */ } },
-          colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.surface)
-        ) {
-          Text(text = "I need more help")
-        }
-      }
-    }
-  }
-}
-
-class StateSubStepThree : TutorialSubStepBlockState {
-  @Composable
-  override fun displayBlock(
-    onHelpRequest: (request: @Composable () -> Unit) -> Unit,
-    showNextStep: () -> Unit
-  ) {
-    TutorialStepCard(title = "State") {
-      Text(text = "Now let's use the variable we created. Add an if statement that checks isCompleted around the check mark icon.")
-      HelpButton("remind me how to use if statements") {
-        onHelpRequest { IfStatementsExplained() }
-      }
-      Text(text = "This tells the computer that we only want to render the checkmark icon when isComplete is true.")
-      Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Try rebuilding the app, since we defaulted isComplete to false, you should not see the checkmarks anymore.")
-      Spacer(modifier = Modifier.height(8.dp))
-      Row {
-        Button(onClick = { showNextStep() }) {
-          Text(text = "Next")
-        }
-        Spacer(modifier = Modifier.width(8.dp))
-        Button(
-          onClick = { onHelpRequest { /** TODO */ } },
-          colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.surface)
-        ) {
-          Text(text = "I still see the checkmarks")
+          Text(text = "Yep, how do we fix that?")
         }
       }
     }
@@ -119,14 +60,19 @@ class StateSubStepFour : TutorialSubStepBlockState {
     showNextStep: () -> Unit
   ) {
     TutorialStepCard(title = "State") {
-      Text(text = "Now, in the onclick function brackets of your complete button, add this line to set isComplete to true:")
-      Text(text = "      isComplete = true", fontWeight = Companion.Bold)
+      // Text(text = "If we change the isComplete value while running the app (by clicking complete), it will not change whether or not the check mark shows.")
+      Text(text = "It did not change last time because nothing told the app it needed to render again.")
+      Text(text = "When it rendered your UI the first time, it checked the value and set the checkmark based on that value but when the value changed, we wanted it to re-render so it could set the checkmark again.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "Rebuild this app & try clicking complete.")
+      HelpButton("remind me what render means") {
+        onHelpRequest { DefineTermRender() }
+      }
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "In order for it to re-render, we need to tell the computer to watch the value for changes and to re-render if it changes.")
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
-          Text(text = "It’s not working")
+          Text(text = "How do we do that?")
         }
       }
     }
@@ -140,7 +86,11 @@ class StateSubStepFive : TutorialSubStepBlockState {
     showNextStep: () -> Unit
   ) {
     TutorialStepCard(title = "State") {
-      Text(text = "When you click the button, nothing happens. That is expected right now but let’s look at why.")
+      Text(text = "To tell the computer we want it to watch a value and re-render when it changes, Compose has a few different tools we can use.")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "Keep the documentation for state & compose handy while we go through the next few steps: https://developer.android.com/jetpack/compose/state")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "The first tool we will look at is “remember” and how it is used with something called “MutableState” to let us observe changes.")
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
@@ -158,15 +108,20 @@ class StateSubStepSix : TutorialSubStepBlockState {
     showNextStep: () -> Unit
   ) {
     TutorialStepCard(title = "State") {
-      Text(text = "Our current solution will work for the first render, but if we change the isComplete value while running the app (by clicking complete), it will not change whether or not the check mark shows.\n" +
-        "To fix this, we can use something in Compose called “remember” & “MutableState”.\n")
+      Text(text = "MutableState is like a wrapper we put around a piece of data we want to observe - in our case, a Boolean value represented isComplete.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "To use these for your isComplete variable, update your variable definition to look like this:")
+      Text(text = "Any time we change the value the MutableState is wrapping, it will take care of notifying the computer that something important changed and we need to re-render.\nWe write this like:\n")
       Text(
-        text = "var isComplete = \n     remember { mutableStateOf(true) }",
+        text = "var isComplete = mutableStateOf(todoItem.isComplete)",
         fontWeight = Companion.Bold,
         overflow = TextOverflow.Visible,
       )
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "Try updating your isComplete variable to use MutableState. (Don't forget, mutableStateOf is something we are borrowing from a library so you will need to import it)")
+      Spacer(modifier = Modifier.height(8.dp))
+      HelpButton("remind me how imports work") {
+        onHelpRequest { ImportsExplained() }
+      }
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
@@ -184,14 +139,77 @@ class StateSubStepSeven : TutorialSubStepBlockState {
     showNextStep: () -> Unit
   ) {
     TutorialStepCard(title = "State") {
-      Text(text = "“remember” is a tool android provides to make sure we don’t try to recalculate the state value too many times. The MutableState inside the remember brackets is a special data type that holds a value and tells our view to re-render any time that value it holds is updated.")
-      HelpButton("learn more about MutableState") {
-        onHelpRequest { MutableStateOverview() }
-      }
+      Text(text = "You probably have 2 questions right now, why is the mutableStateOf value underlined in red & what is mutableStateOf?")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "The red lines are because we haven't setup “remember” yet. “remember” is required in Compose when we work with MutableState, we will look at adding that next.")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "mutableStateOf is a function that Android provides that takes in data of any type and returns that data type wrapped in MutableState. We do NOT need to write this function ourselves since Anrdoid provides it, but to help you visualize what it is doing, if we were to write the function, it would look something like:")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "fun <T> mutableStateOf(\n" +
+        "  value: T,\n" +
+        "): MutableState<T> {\n" +
+        "  *does fancy things and returns your data wrapped in MutableState*\n" +
+        "}")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "Where T represents a generic data type that can be anything.")
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
-          Text(text = "Next")
+          Text(text = "How do we use “remember” with this")
+        }
+      }
+    }
+  }
+}
+
+class StateSubStepSevenHalf : TutorialSubStepBlockState {
+  @Composable
+  override fun displayBlock(
+    onHelpRequest: (request: () -> Unit) -> Unit,
+    showNextStep: () -> Unit
+  ) {
+    TutorialStepCard(title = "State") {
+      Text(text = "“remember” is a tool android provides to make sure we use MutableState in a safe and efficient way.")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "It makes sure that the MutableState value is stored when it should be and forgotten when we don't want it anymore.")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "Because “remember” takes care of this for us, you don't need to worry about doing these things yourself!")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "So the only thing you need to know is, when you want to use MutableState, always acces it via “remember”. And if you forget, Android Studio will remind you to add “remember” by underlining the MutableState in red.")
+      Spacer(modifier = Modifier.height(8.dp))
+      Row {
+        Button(onClick = { showNextStep() }) {
+          Text(text = "What does implementing “remember” look like?")
+        }
+      }
+    }
+  }
+}
+
+class StateSubStepSevenThreeQuarter : TutorialSubStepBlockState {
+  @Composable
+  override fun displayBlock(
+    onHelpRequest: (request: @Composable () -> Unit) -> Unit,
+    showNextStep: () -> Unit
+  ) {
+    TutorialStepCard(title = "State") {
+      Text(text = "To use “remember”, we want to update our isComplete variable to look like this:")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(
+        text = "var isComplete by \n     remember { mutableStateOf(todoItem.isComplete) }",
+        fontWeight = Companion.Bold,
+        overflow = TextOverflow.Visible,
+      )
+      Spacer(modifier = Modifier.height(8.dp))
+      HelpButton("why does this code look strange?") {
+        onHelpRequest { RememberSyntaxExplained() }
+      }
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "Try updating your code to look like that. Did the red underline go away?")
+      Spacer(modifier = Modifier.height(8.dp))
+      Row {
+        Button(onClick = { showNextStep() }) {
+          Text(text = "Yep")
         }
       }
     }
@@ -205,7 +223,7 @@ class StateSubStepEight : TutorialSubStepBlockState {
     showNextStep: () -> Unit
   ) {
     TutorialStepCard(title = "State") {
-      Text(text = "You may see some red squiggles under the two usages of isComplete after moving it to this new type. This is because isComplete is no longer a Boolean, it is of type MutableState.")
+      Text(text = "You may see some new red squiggles under the two usages of isComplete after moving it to this new type. This is because isComplete is no longer a Boolean, it is of type MutableState.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "To access the Boolean value that is wrapped by MutableState, we need to call value on isComplete")
       Spacer(modifier = Modifier.height(8.dp))
@@ -217,7 +235,7 @@ class StateSubStepEight : TutorialSubStepBlockState {
         }
         Spacer(modifier = Modifier.width(8.dp))
         Button(
-          onClick = { onHelpRequest { /** TODO */ } },
+          onClick = { onHelpRequest { StepEightHelpHint() } },
           colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.surface)
         ) {
           Text(text = "Still not working")
@@ -236,7 +254,7 @@ class StateSubStepNine : TutorialSubStepBlockState {
     TutorialStepCard(title = "State") {
       Text(text = "This new approach we have for holding our isComplete value still has a problem though.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "This would work well if we had a todo list we only wanted to keep as long as we kept the app open but it will not work if we want our todo list to last for many days.")
+      Text(text = "This works well if we have a todo list we only want to keep as long as we keep the app running but it will not work if we want our todo list to last for many days.")
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
@@ -274,9 +292,37 @@ class StateSubStepEleven : TutorialSubStepBlockState {
     showNextStep: () -> Unit
   ) {
     TutorialStepCard(title = "State") {
-      Text(text = "The solution to this is something called SavedStateHandle & SharedPreferences.")
+      Text(text = "The solution to this requires something called data persistence.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "We are going to spend some time looking at these two concepts but first we are going to look at something called Viewmodels.")
+      Text(text = "For your first app, we are not going to learn about data persistence since it is a more advanced subject. But if you want to give it a try on your own, take a look at Androids documentation:")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "https://developer.android.com/training/data-storage")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "Also take a look at the online course Android offers on data persistence:")
+      Text(text = "https://developer.android.com/courses/android-basics-kotlin/unit-5")
+      Row {
+        Button(onClick = { showNextStep() }) {
+          Text(text = "Next")
+        }
+      }
+    }
+  }
+}
+
+class StateSubStepTwelve : TutorialSubStepBlockState {
+  @Composable
+  override fun displayBlock(
+    onHelpRequest: (request: @Composable () -> Unit) -> Unit,
+    showNextStep: () -> Unit
+  ) {
+    TutorialStepCard(title = "State") {
+      Text(text = "The next thing we want to use state for is the list of items in our todo list.")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "We want to be able to add and remove items from our list and have the UI update to reflect this.")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "To do this, we will still use remember & MutableState but the logic for managing the list items is going to be more complex then the simple logic to set isComplete to true or false.")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "Any time we have more complex logic, we don't want to put that directly in our UI - we want to put it something called a View Model.")
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {

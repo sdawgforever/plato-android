@@ -1,8 +1,10 @@
 package com.example.platoandroid.ui
 
-import android.content.SharedPreferences
-import androidx.lifecycle.SavedStateHandle
+import android.util.Log
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.ViewModel
+import com.example.platoandroid.data.TodoListItem
 
 /**
  * ViewModel's generally manage state and business logic for a single
@@ -22,20 +24,27 @@ import androidx.lifecycle.ViewModel
  * open class that will let our class have access to additional
  * functionality it provides.
  */
-class TodoListViewModel(
-  /**
-   * sharedPreferences & savedStateHandle are two tools we can use
-   * for managing state we want to persist through certain lifecycle
-   * state of our app. We will talk more about what lifecycle states
-   * there are later on in the tutorial.
-   *
-   * These values will be provided by the view when constructing it's
-   * viewmodel.
-   */
-  private val sharedPreferences: SharedPreferences,
-  private val savedStateHandle: SavedStateHandle,
-) : ViewModel() {
+class TodoListViewModel() : ViewModel() {
   /**
    * This is the body of our view model where all the logic will live.
    */
+  var todoListItems: SnapshotStateList<TodoListItem> = mutableStateListOf()
+
+  fun addTodoListItem(item: TodoListItem) {
+    Log.d("TODO_LIST_TEST_TAG", "Item with id: ${item.id} added to the list!")
+    todoListItems.add(item)
+  }
+
+  fun markTodoListItemComplete(id: String) {
+    Log.d("TODO_LIST_TEST_TAG", "Item with id: $id marked complete!")
+  }
+
+  fun markTodoListItemNotComplete(id: String) {
+    Log.d("TODO_LIST_TEST_TAG", "Item with id: $id marked not complete!")
+  }
+
+  // Add a method for deleting a todo list item here vvv
+  // name the method removeTodoListItem
+
+  // Add method above ^^^
 }

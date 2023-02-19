@@ -25,5 +25,7 @@ class ActivitiesTutorialStepUiState : TutorialStepUiState {
     LifecycleSupStepOne(),
     LifecycleSupStepTwo(),
     LifecycleSupStepThree(),
+    LifecycleSupStepFour(),
+    LifecycleSupStepFive(),
   )
 }

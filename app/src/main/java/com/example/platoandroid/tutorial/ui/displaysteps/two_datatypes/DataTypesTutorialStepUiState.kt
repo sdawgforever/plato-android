@@ -11,7 +11,10 @@ import androidx.compose.ui.unit.dp
 import com.example.platoandroid.tutorial.model.TutorialStepUiState
 import com.example.platoandroid.tutorial.model.TutorialSubStep
 import com.example.platoandroid.tutorial.ui.TutorialStepCard
+import com.example.platoandroid.tutorial.ui.displaysteps.two_datatypes.subssteps.DataTypesSubStepFive
+import com.example.platoandroid.tutorial.ui.displaysteps.two_datatypes.subssteps.DataTypesSubStepFour
 import com.example.platoandroid.tutorial.ui.displaysteps.two_datatypes.subssteps.DataTypesSubStepOne
+import com.example.platoandroid.tutorial.ui.displaysteps.two_datatypes.subssteps.DataTypesSubStepSix
 import com.example.platoandroid.tutorial.ui.displaysteps.two_datatypes.subssteps.DataTypesSubStepThree
 import com.example.platoandroid.tutorial.ui.displaysteps.two_datatypes.subssteps.DataTypesSubStepTwo
 
@@ -21,7 +24,7 @@ class DataTypesTutorialStepUiState : TutorialStepUiState {
     TutorialStepCard(title = "Data Types") {
       Text(text = "Let’s take a look at data types.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "We have already worked a lot with simple data types like String, Int, Boolean")
+      Text(text = "We have already worked a lot with simple data types like String, Int, and Boolean")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "But it can also be helpful to create custom data types to represent objects in our app.")
       Spacer(modifier = Modifier.height(8.dp))
@@ -37,5 +40,8 @@ class DataTypesTutorialStepUiState : TutorialStepUiState {
     DataTypesSubStepOne(),
     DataTypesSubStepTwo(),
     DataTypesSubStepThree(),
+    DataTypesSubStepFour(),
+    DataTypesSubStepFive(),
+    DataTypesSubStepSix(),
   )
 }

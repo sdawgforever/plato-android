@@ -77,9 +77,44 @@ class LifecycleSupStepThree : TutorialSubStepBlockState {
       Text(text = "https://developer.android.com/guide/components/activities/intro-activities")
       Row {
         Button(onClick = { showNextStep() }) {
-          Text(text = "What do each of these layers do?")
+          Text(text = "Next")
         }
       }
+    }
+  }
+}
+
+class LifecycleSupStepFour : TutorialSubStepBlockState {
+  @Composable
+  override fun displayBlock(
+    onHelpRequest: (request: @Composable () -> Unit) -> Unit,
+    showNextStep: () -> Unit
+  ) {
+    TutorialStepCard(title = "Congrats!") {
+      Text(text = "Congrats! You made it through the tutorial")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "Now it's time to put your skills to the test. Before you start a brand new app of your own, in the MainActivity file (the entry point to our app) comment out the TodoList() composable and try impelementing something new.")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "Be creative, this new functionality can do whatever you want but try to exercise the principles you learned & reference your TodoList code for help.")
+      Spacer(modifier = Modifier.height(8.dp))
+      Row {
+        Button(onClick = { showNextStep() }) {
+          Text(text = "Show me an empty screen so I have more canvas space")
+        }
+      }
+    }
+  }
+}
+
+class LifecycleSupStepFive : TutorialSubStepBlockState {
+  @Composable
+  override fun displayBlock(
+    onHelpRequest: (request: @Composable () -> Unit) -> Unit,
+    showNextStep: () -> Unit
+  ) {
+    TutorialStepCard(title = "Congrats!") {
+      Text(text = "Your canvas is below! Start building!")
+      Spacer(modifier = Modifier.height(8.dp))
     }
   }
 }

@@ -20,12 +20,13 @@ import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.Find
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.StepFourHint
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.StepSixHint
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.StepTwelveHint
+import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.StepTwelveThreeQuarterCodeCheck
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.help.WhatAreColorHexCodes
 import com.example.platoandroid.tutorial.ui.displaysteps.help.HelpButton
+import com.example.platoandroid.tutorial.ui.displaysteps.help.IfStatementsExplained
 import com.example.platoandroid.tutorial.ui.displaysteps.help.WhatDoesDpMean
 import com.example.platoandroid.tutorial.ui.displaysteps.help.WhatIsAComposable
 import com.example.platoandroid.tutorial.ui.displaysteps.help.WhatIsAConstructor
-import com.example.platoandroid.tutorial.ui.displaysteps.help.WhatIsAnExtensionFunction
 
 class StylesOne : TutorialSubStepBlockState {
   @Composable
@@ -452,6 +453,64 @@ class StylesTwelve : TutorialSubStepBlockState {
           colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.surface)
         ) {
           Text(text = "No")
+        }
+      }
+    }
+  }
+}
+
+class StylesTwelveHalf : TutorialSubStepBlockState {
+  @Composable
+  override fun displayBlock(
+    onHelpRequest: (request: @Composable () -> Unit) -> Unit,
+    showNextStep: () -> Unit
+  ) {
+    TutorialStepCard(title = "Adding Styles") {
+      Text(text = "Great job! Now you have a green checkmark.")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "But right now, when our task is NOT marked complete, this checkmark just disappears.")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(
+        text = "Let's try instead to still show the checkmark if its not complete, but show it in gray instead of green"
+      )
+      Spacer(modifier = Modifier.height(8.dp))
+      Row {
+        Button(onClick = { showNextStep() }) {
+          Text(text = "How do we do that?")
+        }
+      }
+    }
+  }
+}
+
+class StylesTwelveThreeQuarter : TutorialSubStepBlockState {
+  @Composable
+  override fun displayBlock(
+    onHelpRequest: (request: @Composable () -> Unit) -> Unit,
+    showNextStep: () -> Unit
+  ) {
+    TutorialStepCard(title = "Adding Styles") {
+      Text(text = "To add a gray checkmark when isComplete is false, we can add an else branch to the if statement we have checking our isComplete variable.")
+      Spacer(modifier = Modifier.height(8.dp))
+      HelpButton("remind me how to use if statements") {
+        onHelpRequest { IfStatementsExplained() }
+      }
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(
+        text = "Add an else branch and inside the else brackets, add another Icon with a checkmark but set the tint value to gray."
+      )
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "Give it a try and then check your code with the Check code button.")
+      Row {
+        Button(onClick = { showNextStep() }) {
+          Text(text = "Next")
+        }
+        Spacer(modifier = Modifier.width(8.dp))
+        Button(
+          onClick = { onHelpRequest { StepTwelveThreeQuarterCodeCheck() } },
+          colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.surface)
+        ) {
+          Text(text = "Check code")
         }
       }
     }

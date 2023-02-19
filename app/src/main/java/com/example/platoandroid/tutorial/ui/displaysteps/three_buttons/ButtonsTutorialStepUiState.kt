@@ -12,6 +12,7 @@ import com.example.platoandroid.tutorial.model.TutorialStepUiState
 import com.example.platoandroid.tutorial.model.TutorialSubStep
 import com.example.platoandroid.tutorial.ui.TutorialStepCard
 import com.example.platoandroid.tutorial.ui.displaysteps.three_buttons.substeps.ButtonsSubStepOne
+import com.example.platoandroid.tutorial.ui.displaysteps.three_buttons.substeps.ButtonsSubStepThree
 import com.example.platoandroid.tutorial.ui.displaysteps.three_buttons.substeps.ButtonsSubStepTwo
 
 class ButtonsTutorialStepUiState : TutorialStepUiState {
@@ -20,7 +21,7 @@ class ButtonsTutorialStepUiState : TutorialStepUiState {
     TutorialStepCard(title = "Working with Buttons") {
       Text(text = "Let’s loop back to buttons now.")
       Spacer(modifier = Modifier.height(8.dp))
-      Text(text = "We added a button to the end of our todo list rows to mark the task as completed but right now it doesn’t do anything.")
+      Text(text = "We added a button to the start of our todo list rows to mark the task as completed but right now it doesn’t do anything.")
       Spacer(modifier = Modifier.height(8.dp))
       Row {
         Button(onClick = { showNextStep() }) {
@@ -33,5 +34,6 @@ class ButtonsTutorialStepUiState : TutorialStepUiState {
   override fun getSubSteps(): List<TutorialSubStep> = listOf(
     ButtonsSubStepOne(),
     ButtonsSubStepTwo(),
+    ButtonsSubStepThree(),
   )
 }

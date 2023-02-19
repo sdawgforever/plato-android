@@ -14,6 +14,28 @@ import androidx.compose.ui.unit.dp
 import com.example.platoandroid.tutorial.model.TutorialSubStepBlockState
 import com.example.platoandroid.tutorial.ui.TutorialStepCard
 
+class ArchitectureSupStepZero : TutorialSubStepBlockState {
+  @Composable
+  override fun displayBlock(
+    onHelpRequest: (request: @Composable () -> Unit) -> Unit,
+    showNextStep: () -> Unit
+  ) {
+    TutorialStepCard(title = "Architecture") {
+      Text(text = "What do you think of when you think about Architecture?")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "You probably think of the way something is built or structured, right?")
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(text = "Architecture in the context of software development has to do with the way code is structured.")
+      Spacer(modifier = Modifier.height(8.dp))
+      Row {
+        Button(onClick = { showNextStep() }) {
+          Text(text = "Next")
+        }
+      }
+    }
+  }
+}
+
 class ArchitectureSupStepOne : TutorialSubStepBlockState {
   @Composable
   override fun displayBlock(

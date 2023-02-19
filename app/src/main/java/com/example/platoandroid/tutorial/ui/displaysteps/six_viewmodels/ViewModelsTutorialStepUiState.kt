@@ -10,11 +10,25 @@ import androidx.compose.ui.unit.dp
 import com.example.platoandroid.tutorial.model.TutorialStepUiState
 import com.example.platoandroid.tutorial.model.TutorialSubStep
 import com.example.platoandroid.tutorial.ui.TutorialStepCard
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepEight
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepEighteen
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepFifteen
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepFive
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepFour
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepFourteen
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepNine
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepNineteen
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepOne
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepSeven
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepSeventeen
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepSix
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepSixteen
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepTen
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepThirteen
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepThree
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepTwelve
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepTwenty
+import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepTwentyOne
 import com.example.platoandroid.tutorial.ui.displaysteps.six_viewmodels.substeps.ViewModelSupStepTwo
 
 class ViewModelsTutorialStepUiState : TutorialStepUiState {
@@ -40,5 +54,19 @@ class ViewModelsTutorialStepUiState : TutorialStepUiState {
     ViewModelSupStepFour(),
     ViewModelSupStepFive(),
     ViewModelSupStepSix(),
+    ViewModelSupStepSeven(),
+    ViewModelSupStepEight(),
+    ViewModelSupStepNine(),
+    ViewModelSupStepTen(),
+    ViewModelSupStepTwelve(),
+    ViewModelSupStepThirteen(),
+    ViewModelSupStepFourteen(),
+    ViewModelSupStepFifteen(),
+    ViewModelSupStepSixteen(),
+    ViewModelSupStepSeventeen(),
+    ViewModelSupStepEighteen(),
+    ViewModelSupStepNineteen(),
+    ViewModelSupStepTwenty(),
+    ViewModelSupStepTwentyOne(),
   )
 }

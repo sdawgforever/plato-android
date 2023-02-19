@@ -15,17 +15,17 @@ package com.example.platoandroid.data
  * For example, if you a variable representing a todo list item, you
  * could write something like:
  *
- * var todoListItem: TodoListItem = TodoListItem(itemName = "thing to do")
+ * var todoListItem: TodoListItem = TodoListItem(taskName = "thing to do")
  *
  * Then we could access the values of our custom data type like:
  *
- * todoListItem.itemName // would return "thing to do"
+ * todoListItem.taskName // would return "thing to do"
  */
 
 /**
  * Our TodoListItem data class is started below, but we need some more
  * values to represent everything about a TodoListItem.
- * In the constructor below `itemName` (in between the comments), add
+ * In the constructor below `taskName` (in between the comments), add
  * some more values to represent the following:
  *  isCompleted of type Boolean
  *  completedAt of type Date?
@@ -47,10 +47,10 @@ package com.example.platoandroid.data
  * If you want a value to be OPTIONAl, you can make it nullable by adding a ? to the end.
  * For example if we were creating a TodoListItem with a nullable dueDate, we
  * could write something like:
- * val todoListItemWithNoDueDate = TodoListItem(itemName = "thing to do", dueDate = null)
+ * val todoListItemWithNoDueDate = TodoListItem(taskName = "thing to do", dueDate = null)
  *
  * OR you could write a todo list item with a date like:
- * val todoListItemWithDueDate = TodoListItem(itemName = "thing to do", dueDate = Date())
+ * val todoListItemWithDueDate = TodoListItem(taskName = "thing to do", dueDate = Date())
  *
  * Note: When you access a nullable value, you will need to be aware of the fact the value
  * could be null. If you are sure its not null, you can "force unwrap it" to treat it as a
@@ -62,8 +62,11 @@ package com.example.platoandroid.data
  */
 
 data class TodoListItem(
-  // the constructor arguments go here
-  val itemName: String,
+  // the constructor arguments go here vvv
+  // It's important that we have a unique ID so we can tell different todo list
+  // items apart even if they have the same taskName.
+  val id: String,
+  val taskName: String,
   // add the additional values a todo list item will need below vvv
 
   // add todo list item values above ^^^

@@ -13,15 +13,22 @@ import com.example.platoandroid.tutorial.model.TutorialStepUiState
 import com.example.platoandroid.tutorial.model.TutorialSubStep
 import com.example.platoandroid.tutorial.ui.TutorialStepCard
 import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepEight
+import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepEighteen
 import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepEleven
+import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepFifteen
 import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepFive
 import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepFour
+// import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepFourteen
 import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepNine
+import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepNineteen
 import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepOne
 import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepSeven
 import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepSix
+import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepSixteen
 import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepTen
+import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepThirteen
 import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepThree
+import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepTwelve
 import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeBasicsSubStepTwo
 import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.ComposeOverviewSubStepUiState
 import com.example.platoandroid.tutorial.ui.displaysteps.composebasics.substeps.CreateYourOwnComposablePartTwoSubStepUiState
@@ -99,5 +106,12 @@ class LearningComposeBasicsTutorialStepUiState : TutorialStepUiState {
     ComposeBasicsSubStepNine(),
     ComposeBasicsSubStepTen(),
     ComposeBasicsSubStepEleven(),
+    ComposeBasicsSubStepTwelve(),
+    ComposeBasicsSubStepThirteen(),
+    // ComposeBasicsSubStepFourteen(),
+    ComposeBasicsSubStepFifteen(),
+    ComposeBasicsSubStepSixteen(),
+    ComposeBasicsSubStepEighteen(),
+    ComposeBasicsSubStepNineteen(),
   )
 }

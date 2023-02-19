@@ -24,6 +24,8 @@ import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.substeps.
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.substeps.StylesThirteen
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.substeps.StylesThree
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.substeps.StylesTwelve
+import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.substeps.StylesTwelveHalf
+import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.substeps.StylesTwelveThreeQuarter
 import com.example.platoandroid.tutorial.ui.displaysteps.composestyles.substeps.StylesTwo
 
 class ComposeStylesTutorialStepUiState : TutorialStepUiState {
@@ -54,6 +56,8 @@ class ComposeStylesTutorialStepUiState : TutorialStepUiState {
     StylesTen(),
     StylesEleven(),
     StylesTwelve(),
+    StylesTwelveHalf(),
+    StylesTwelveThreeQuarter(),
     StylesThirteen(),
   )
 }

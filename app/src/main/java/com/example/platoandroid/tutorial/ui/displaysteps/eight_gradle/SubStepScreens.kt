@@ -19,7 +19,7 @@ class GradleSupStepOne : TutorialSubStepBlockState {
     onHelpRequest: (request: @Composable () -> Unit) -> Unit,
     showNextStep: () -> Unit
   ) {
-    TutorialStepCard(title = "App Lifecycle") {
+    TutorialStepCard(title = "Gradle & Dependencies") {
       Text(text = "We use a tool called gradle to manage our dependencies. Gradle also does many other things for our android app but managing our dependencies is the one we are going to focus on.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "When we want to depend on an external library, we add the path for it to our build.gradle file.")
@@ -44,7 +44,7 @@ class GradleSupStepTwo : TutorialSubStepBlockState {
     onHelpRequest: (request: @Composable () -> Unit) -> Unit,
     showNextStep: () -> Unit
   ) {
-    TutorialStepCard(title = "App Lifecycle") {
+    TutorialStepCard(title = "Gradle & Dependencies") {
       Text(text = "In this file, within the `dependencies {}` block, you will see a number of dependencies already added. These have been added for you for this project but when you create your own, you will need to add them yourself.")
       Spacer(modifier = Modifier.height(8.dp))
       Text(text = "Read through the comments in that file to understand what the different dependencies are for and some best practices about working with gradle files. ")

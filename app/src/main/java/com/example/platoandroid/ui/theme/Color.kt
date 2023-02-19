@@ -6,6 +6,7 @@ val Purple200 = Color(0xFFBB86FC)
 val Purple500 = Color(0xFF6200EE)
 val Purple700 = Color(0xFF3700B3)
 val Teal200 = Color(0xFF03DAC5)
+val Gray = Color(0xFFBBBABA)
 
 val MutedTone = Color(0xFFFFF7F7)
 val MutedToneAccent = Color(0xFFFE525B)
@@ -24,5 +25,5 @@ val VariantBlue = Color(0xFF007AFF)
  * https://htmlcolorcodes.com/color-picker/
  */
 // Add your color here vvv
-
+val CheckMarkGreen = Color(0xFF008000)
 // ^^^ Add you color here
