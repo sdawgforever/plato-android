@@ -229,13 +229,13 @@ class ArchitectureSupStepEight : TutorialSubStepBlockState {
         Button(onClick = { showNextStep() }) {
           Text(text = "I have a basic grasp on architecture")
         }
-        Spacer(modifier = Modifier.width(8.dp))
-        Button(
-          onClick = { onHelpRequest { /** TODO */ } },
-          colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.surface)
-        ) {
-          Text(text = "Help")
-        }
+        // Spacer(modifier = Modifier.width(8.dp))
+        // Button(
+        //   onClick = { onHelpRequest { /** TODO */ } },
+        //   colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.surface)
+        // ) {
+        //   Text(text = "Help")
+        // }
       }
     }
   }
