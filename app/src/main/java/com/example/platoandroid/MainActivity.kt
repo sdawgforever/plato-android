@@ -45,13 +45,12 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 // ^^^
@@ -102,6 +101,17 @@ class MainActivity : ComponentActivity() {
             Text(text= "hello world")
             Button(onClick = {/*TODO*/}) {
               Text(text = "click here")            }
+            Checkbox(
+              checked = true,
+              onCheckedChange = {
+
+              },
+            )
+            TodoList(title = "My Todo List")
+
+
+
+
             // YOUR TEST AREA vvv
 
             // ^^^^^ add above ^^^^^
