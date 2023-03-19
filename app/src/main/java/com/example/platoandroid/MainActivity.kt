@@ -98,15 +98,9 @@ class MainActivity : ComponentActivity() {
              * text that follows it is a comment. This text won't run like code,
              * it's just so you can leave helpful notes like this one :)
              */
-            Text(text= "hello world")
-            Button(onClick = {/*TODO*/}) {
-              Text(text = "click here")            }
-            Checkbox(
-              checked = true,
-              onCheckedChange = {
 
-              },
-            )
+
+
             TodoList(title = "My Todo List")
 
 

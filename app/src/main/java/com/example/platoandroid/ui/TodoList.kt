@@ -27,6 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -119,3 +120,40 @@ fun Title(title: String) {
 }
 
 // Create a new composable here vvv
+
+@Composable
+fun TodoListRow(taskName: String) {
+  Row(
+    modifier = Modifier.height(64.dp),
+    verticalAlignment = Alignment.CenterVertically,
+  ) {
+   Icon(
+       imageVector = Icons.Filled.CheckCircle,
+      contentDescription = "Checkmark",
+    )
+    Spacer(
+      modifier =
+      Modifier.width(12.dp))
+    Text(text = taskName)
+  }
+  }
+
+@Composable
+fun TodoList(title: String) {
+Column(
+modifier = Modifier.padding(12.dp)
+){
+Title(title = title)
+// We need to add some to-do items here below
+vvv
+TodoListRow(taskName = "thing one")
+TodoListRow(taskName = "thing two")
+TodoListRow(taskName = "thing three")
+TodoListRow(taskName = "thing four")
+//^^^Add to-do list items above
+TextField(value = "", onValueChange = {})
+Button(onClick = {/*TODO*/}) {
+Text(text = "Add Item")
+}
+}
+}
